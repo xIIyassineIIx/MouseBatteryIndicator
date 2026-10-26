@@ -1,0 +1,19 @@
+# Build output
+dist/
+assets/*.ico
+
+# Reverse-engineering scratch and probe binaries (kept locally, not published)
+research/
+
+# IDE / OS noise
+.vs/
+bin/
+obj/
+*.user
+*.suo
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+*.old

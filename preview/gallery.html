@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MouseBattery icon previews</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    margin: 0; padding: 32px;
+    background: #f3f3f3; color: #1b1b1b;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #202020; color: #e8e8e8; }
+    .card { background: #2b2b2b !important; border-color: #3a3a3a !important; }
+    .dark-strip { background: #1c1c1c !important; border-color: #3a3a3a !important; }
+  }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  p.sub { margin: 0 0 28px; opacity: .7; font-size: 13px; }
+  h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+       opacity: .55; margin: 0 0 12px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+          margin-bottom: 34px; }
+  .card { background: #fff; border: 1px solid #e2e2e2; border-radius: 10px;
+          padding: 18px 14px 12px; text-align: center; }
+  .iconbox { height: 76px; display: flex; align-items: center; justify-content: center; gap: 22px;
+             margin-bottom: 10px; }
+  .iconbox img { width: 48px; height: 48px; image-rendering: auto; }
+  .iconbox img.small { width: 16px; height: 16px; }
+  .cap { font-size: 12.5px; line-height: 1.45; opacity: .85; }
+  .cap b { display: block; font-weight: 600; opacity: 1; }
+  .strip { display: flex; align-items: center; gap: 18px; padding: 12px 18px; border-radius: 10px;
+           border: 1px solid #e2e2e2; background: #fff; margin-bottom: 34px; }
+  .strip .label { font-size: 12.5px; opacity: .7; }
+  .legend { font-size: 12.5px; line-height: 1.6; opacity: .75; margin: 0; padding-left: 18px; }
+  code { font-family: "Cascadia Mono", Consolas, monospace; font-size: 12px;
+         background: rgba(127,127,127,.15); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <h1>MouseBattery — tray icon states</h1>
+  <p class="sub">Rendered at 48 px (left) and true 16 px taskbar size (right).</p>
+
+  <h2>Battery icon style</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="iconbox"><img src="battery-95-charging.png" alt="95 charging"><img class="small" src="battery-95-charging.png" alt=""></div>
+      <div class="cap"><b>95% + charging</b>Green fill with a white charging bolt.</div>
+    </div>
+    <div class="card">
+      <div class="iconbox"><img src="battery-42.png" alt="42 percent"><img class="small" src="battery-42.png" alt=""></div>
+      <div class="cap"><b>42%</b>Normal level. Green fill.</div>
+    </div>
+    <div class="card">
+      <div class="iconbox"><img src="battery-12.png" alt="12 percent"><img class="small" src="battery-12.png" alt=""></div>
+      <div class="cap"><b>12%</b>Low level. Red fill + outline.</div>
+    </div>
+    <div class="card">
+      <div class="iconbox"><img src="unknown.png" alt="unknown"><img class="small" src="unknown.png" alt=""></div>
+      <div class="cap"><b>Unknown</b>No reading yet / mouse off.</div>
+    </div>
+  </div>
+
+  <h2>Percentage digits style</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="iconbox"><img src="digits-95-charging.png" alt="95 charging digits"><img class="small" src="digits-95-charging.png" alt=""></div>
+      <div class="cap"><b>95% + charging</b>Number with charging bolt.</div>
+    </div>
+    <div class="card">
+      <div class="iconbox"><img src="digits-42.png" alt="42 digits"><img class="small" src="digits-42.png" alt=""></div>
+      <div class="cap"><b>42%</b>Plain number.</div>
+    </div>
+    <div class="card">
+      <div class="iconbox"><img src="digits-12.png" alt="12 digits"><img class="small" src="digits-12.png" alt=""></div>
+      <div class="cap"><b>12%</b>Low: red number.</div>
+    </div>
+  </div>
+
+  <h2>On a light taskbar</h2>
+  <div class="strip" style="background:#f0f0f0">
+    <span class="label">Light theme →</span>
+    <img src="battery-95-light-taskbar.png" alt="" style="width:48px;height:48px">
+    <img src="battery-95-light-taskbar.png" alt="" style="width:32px;height:32px">
+    <img src="battery-95-light-taskbar.png" alt="" style="width:16px;height:16px">
+    <span class="label">dark-outline variant so it stays visible on light backgrounds</span>
+  </div>
+
+  <h2>Level colors</h2>
+  <ul class="legend">
+    <li><b>Green</b> — above 50%</li>
+    <li><b>Amber</b> — 21–50%</li>
+    <li><b>Red</b> — 20% and below</li>
+    <li><b>Blue</b> — digits style while charging / wired</li>
+    <li><b>Grey</b> — no data (mouse off, dongle unplugged)</li>
+  </ul>
+</body>
+</html>
